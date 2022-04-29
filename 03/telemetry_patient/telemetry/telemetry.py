@@ -1,3 +1,6 @@
+from random import random
+
+
 class TelemetryDiagnosticControls:
     DiagnosticChannelConnectionString = "*111#"
 
@@ -73,7 +76,7 @@ Remote Rtrn Count........... 00"""
             message = ""
             messageLength = random.randint(0, 50) + 60
             i = messageLength
-            while(i >= 0):
+            while i >= 0:
                 message += chr((random.randint(0, 40) + 86))
                 i -= 1
         else:
