@@ -59,3 +59,11 @@ class PhoneBookTest(unittest.TestCase):
         self.phonebook.add("Bob", "12345")
         self.phonebook.add("Tom", "123")  # prefix of Bob
         self.assertFalse(self.phonebook.is_consistent())
+
+    # Here the behaviour of the test is to check the one thing but
+    # with two assert statement. How to do that ?
+    def test_phonebook_adds_names_and_numbers(self):
+        self.phonebook.add("Sue", "123343")
+        # assertIn takes the testable in 1st arg and a iterable in the second arg
+        self.assertIn("Sue", self.phonebook.get_names())
+        self.assertIn("123343", self.phonebook.get_numbers())
