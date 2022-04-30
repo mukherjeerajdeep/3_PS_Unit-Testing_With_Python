@@ -2,7 +2,8 @@
 
 Settings to run from pycharm
 
-![](C:\Rajdeep_Mukherjee\PluralSight_Python\3_PS_Unit-Testing_With_Python\04\phonebook_pytest\pytest2\pytets.PNG)
+![pyttst](https://user-images.githubusercontent.com/43293317/166119134-e07aec45-f826-4acb-92c7-b11311039d1f.PNG)
+
 
 `Phonebook Class` 
 This project can detect inconsistent lists of phone numbers.
@@ -106,7 +107,6 @@ The command line runner way. with `-m` flag
 ```text
 pytest2>python.exe -m pytest -m "not slow" 
 ```
-![](C:\Rajdeep_Mukherjee\PluralSight_Python\3_PS_Unit-Testing_With_Python\04\phonebook_pytest\pytest2\not_slow.PNG)
 
 However, wrong input in the pytest command-line runner might not guarantee that the tests are executed properly
 if the input is wrong, hence the `pytest.ini` comes into picture  
@@ -121,6 +121,8 @@ addopts = --strict
 markers =
     slow: Run tests that use sample data from file
 ```
+
+![not_slow](https://user-images.githubusercontent.com/43293317/166119145-6e8ef19f-5efc-400d-b4af-9d9a4e0d0579.PNG)
 
 There are built-in markers in the PyTest, for example the `@pytest.mark.skip("WIP")` which can be used to skip
 a test.
