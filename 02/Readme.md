@@ -1,5 +1,21 @@
 # Phonebook and the tests 
 
+Unittest can be directly invoked from command line with the command below. 
+Remember that the unittest should be executed in the root directory where the 
+tests resides. In this case it is from the phone numbers. 
+
+![Directory Structure](C:\Users\erajmuk\Desktop\sstr.PNG)
+
+```text
+PS ...\02\phone_numbers> python.exe -m unittest 
+.......
+----------------------------------------------------------------------
+Ran 7 tests in 0.001s
+
+OK
+
+```
+
 Here is the URL for the large phonebook to do load test for the test scrips.
 [GitHub Repo for Phone Numbers](https://github.com/emilybache/Phone-Numbers-Kata)
 

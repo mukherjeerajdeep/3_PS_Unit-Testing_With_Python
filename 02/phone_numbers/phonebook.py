@@ -25,3 +25,11 @@ class PhoneBook:
                 if number1.startswith(number2):
                     return False
         return True
+
+    def get_names(self):
+        return self.numbers.keys()
+
+    def get_numbers(self):
+        return self.numbers.values()
+
+
