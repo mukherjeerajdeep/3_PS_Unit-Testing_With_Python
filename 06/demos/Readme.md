@@ -224,8 +224,7 @@ def test_single_sign_on_with_invalid_token():
     spy_sso_registry.is_valid.assert_called_with(token) ---(From Previous Test)
     assert response.text == "Please sign in" ---(2)
 ```
-
-![](C:\Rajdeep_Mukherjee\PluralSight_Python\3_PS_Unit-Testing_With_Python\06\demos\Spy_Func_Ref.PNG)
+![Spy_Func_Ref](https://user-images.githubusercontent.com/43293317/166157391-fcbb5c3d-c3d6-4326-ad1c-05dc7d78aa1c.PNG)
 
 1. **_Spy is exactly has same methods as the original method_**. So we can say it listens how MyService class works
 on the method calls. 
