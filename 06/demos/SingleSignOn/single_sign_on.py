@@ -30,3 +30,6 @@ class SSOToken:
 def credentials_are_valid(credentials):
     """check the credentials by accessing LDAP or whatever"""
     return True
+
+if __name__ == "__main__":
+    single_sign = SingleSignOnRegistry()

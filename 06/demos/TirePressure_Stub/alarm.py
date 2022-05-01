@@ -10,7 +10,7 @@ class Alarm:
         self._is_alarm_on = False
         
     def check(self):
-        pressure = self._sensor.sample_tyre_pressure()
+        pressure = self._sensor.sample_pressure()
         if pressure < self._low_pressure_threshold \
                 or self._high_pressure_threshold < pressure:
             self._is_alarm_on = True

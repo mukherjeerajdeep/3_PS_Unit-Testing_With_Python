@@ -1,10 +1,9 @@
-============
-Yatzy Game
-============
+# Yatzy Game
 
-You can use this code to play Yatzy. A whole game with all 14 categories
+## You can use this code to play Yatzy. A whole game with all 14 categories
 is quite long. Here you can see a full game played with only two categories.
 
+```text
 >>> from yatzy_game import *
 >>> random.seed(1234)
 >>> import functools
@@ -28,9 +27,11 @@ ones:       4
 twos:       2
 <BLANKLINE>
 Final Score: 6
+```
 
-This next game is very similar, but with different choices for the re-rolls.
+## This next game is very similar, but with different choices for the re-rolls.
 
+```text
 >>> random.seed(4321)
 >>> stub_input = functools.partial(next, iter(["2,3,4", "3,6", "ones", "1,3,4,5", "4,4,5", "twos"]))
 >>> play_yatzy_with_categories([ones, twos], input_source=stub_input)
@@ -59,9 +60,10 @@ ones:       4
 twos:       4
 <BLANKLINE>
 Final Score: 8
+```
+## This game has two more complex categories, 'small_straight' and 'four_of_a_kind'
 
-This game has two more complex categories, 'small_straight' and 'four_of_a_kind'
-
+```text
 >>> random.seed(4321)
 >>> stub_input = functools.partial(next, iter(["2,3,4", "3,6", "four_of_a_kind", "", "", "small_straight"]))
 >>> play_yatzy_with_categories([small_straight, four_of_a_kind], input_source=stub_input)
@@ -90,3 +92,48 @@ small_straight:       15
 four_of_a_kind:       4
 <BLANKLINE>
 Final Score: 19
+```
+
+##  Run doctest from the terminal 
+
+```text
+YatzyGameWithDoctest>python -m doctest  .\yatzy.py
+YatzyGameWithDoctest>
+YatzyGameWithDoctest>
+YatzyGameWithDoctest>python -m doctest  .\yatzy.py -v
+Trying:
+    chance([5,5,5,5,5])
+Expecting:
+    25
+ok
+Trying:
+    chance([1,2,3,4,5])
+Expecting:
+    15
+ok
+Trying:
+    dice_counts([1,2,2,3,3])
+Expecting:
+    {1: 1, 2: 2, 3: 2, 4: 0, 5: 0, 6: 0}
+
+```
+
+## The `...` dots are used as a wildcard for the doctest as PyTest default set them as wildcard
+
+Elipsis avoids the exact object/date returned by the REPL to get it checked by doctest. 
+
+```python
+    >>> scores_in_categories([1,1,2,2,2], (ones, full_house)) #doctest: +ELLIPSIS
+    [(8, <function full_house at ...>), (2, <function ones at ...>)]
+```
+
+The special string/annotation let doctest to let know to ignore the details as such for the exceptions. 
+Here is that `#doctest: +IGNORE_EXCEPTION_DETAIL`
+
+```python
+    >>> dice_counts("12345")  #doctest: +IGNORE_EXCEPTION_DETAIL
+    Traceback (most recent call last):
+        ...
+    TypeError:  Can't convert 'int' object to str implicitly
+    """
+```

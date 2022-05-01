@@ -3,7 +3,6 @@ from unittest.mock import Mock
 from my_service import MyService, Request
 from single_sign_on import SSOToken, SingleSignOnRegistry
 
-
 def test_hello_name():
     stub_sso_registry = Mock(SingleSignOnRegistry)
     service = MyService(stub_sso_registry)

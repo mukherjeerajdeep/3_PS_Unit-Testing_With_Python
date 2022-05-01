@@ -5,7 +5,7 @@ from html_pages import HtmlPagesConverter
 
 def test_convert_quotes():
     fake_file = io.StringIO("quote: ' ")
-    converter = HtmlPagesConverter(open_file=fake_file)
+    converter = HtmlPagesConverter(file=fake_file)
     converted_text = converter.get_html_page(0)
     assert converted_text == "quote: &#x27;<br />"
 
@@ -18,6 +18,6 @@ page two
 PAGE_BREAK
 page three
 """)
-    converter = HtmlPagesConverter(open_file=fake_file)
+    converter = HtmlPagesConverter(file=fake_file)
     converted_text = converter.get_html_page(1)
     assert converted_text == "page two<br />"

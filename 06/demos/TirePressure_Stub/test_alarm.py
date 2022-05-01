@@ -26,4 +26,3 @@ def test_normal_pressure_alarm_stays_off():
     alarm = Alarm(stub_sensor)
     alarm.check()
     assert not alarm.is_alarm_on
-
