@@ -6,3 +6,6 @@ name,sell_in,quality,expected_sell_in,expected_quality
 "Backstage passes to a TAFKAL80ETC concert",5,20,4,23
 "Aged Brie",0,5,-1,7
 "Sulfuras, Hand of Ragnaros",10,10,10,10
+"Aged Brie",-1,5,-2,7
+"Sulfuras, Hand of Ragnaros",-2,10,-2,10
+"Backstage passes to a TAFKAL80ETC concert",-2,20,-3,0

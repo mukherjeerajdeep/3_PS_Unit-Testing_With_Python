@@ -13,6 +13,8 @@ class TennisTest(unittest.TestCase):
             (2, 1, "Thirty-Fifteen"),
             (3, 1, "Forty-Fifteen"),
             (4, 1, "Win for Player 1"),
+            (4, 3, "Advantage Player 1"),
+            # (4, 5, "Advantage Player 2"),
         ]
         for player1_points, player2_points, expected_score in test_cases:
             with self.subTest(f"{player1_points}, {player2_points} -> {expected_score}"):

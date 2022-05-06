@@ -136,7 +136,7 @@ page three
     converter = HtmlPagesConverter(file=fake_file)
 ```
 
-## Using the dummy. 
+## Using the simple dummy. 
 
 The use of dummy here is in the method declaration as an optional argument. It is `additional_rules=None` 
 which will help to pass None if the user don't want to use the `additional_rules` other than `fizz/buzz`  
@@ -253,3 +253,86 @@ def test_single_sign_on_receives_correct_token():
     service.handle(Request("Emily"), correct_token)
     mock_sso_registry.is_valid.assert_called()
 ```
+
+## Use of `monkey-patching` for the collaborators/dependencies. 
+
+Last time we used the `alarm.py` with `sensor` so that we can send the test-doubles using it. That small change actually
+improved the design of alarm class as it makes **_less dependent on specific/concrete implementation_** of `alarm` class
+with `sensor` class.
+
+```python
+ def __init__(self, sensor=None):
+        ...
+        self._sensor = sensor or Sensor()
+```
+
+### How could we do this without changing it ? 
+
+We have written the test in a way so that we can patch the Sensor in the alarm class. **_Remember even if the sensor is
+defined as a separate module but during the path we need to use it as reference from the using class_**. Here Alarm class
+is using or depending on the Sensor class, so we need to start from alarm.Sensor. Defines as a string.
+
+1. This line (1) patches the Sensor in the alarm class as the stub called `test_sensor_class`.
+2. Then we mentioned that it's a mock (2) which we need to modify with values low or high. 
+3. We set the appropriate value for the test. 
+4. Set the return value of the instanced stub with the instance. So we return a stub instance
+
+```python
+def test_alarm_with_high_pressure_value():
+    with patch('alarm.Sensor') as test_sensor_class:
+        test_sensor_instance = Mock()
+        test_sensor_instance.sample_pressure.return_value = 22
+        test_sensor_class.return_value = test_sensor_instance
+```
+
+The other way of writing it as the decorator `@patch('alarm.Sensor')`, the same way but the stubbed instance is passed
+as an argument. 
+
+```python
+@patch('alarm.Sensor')
+def test_alarm_with_too_low_pressure_value(test_sensor_class):
+    test_sensor_instance = Mock()
+    test_sensor_instance.sample_pressure.return_value = 16
+    test_sensor_class.return_value = test_sensor_instance
+```
+
+Another example where the monke-path is used.
+### Tips 
+
+We can make a class to be used with context manager as below with dunder method `__enter__` and `__exit__` method 
+overriding.
+
+```python
+    def __enter__(self):
+        self.open_file = open(self.filename)
+        self._find_page_breaks()
+        return self
+
+    def __exit__(self, *exc):
+        return self.open_file.close()
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
