@@ -5,7 +5,8 @@ Settings to run from pycharm
 ![pyttst](https://user-images.githubusercontent.com/43293317/166119134-e07aec45-f826-4acb-92c7-b11311039d1f.PNG)
 
 
-`Phonebook Class` 
+**Phonebook Class**
+
 This project can detect inconsistent lists of phone numbers.
 
 ## Usage of this program :  
