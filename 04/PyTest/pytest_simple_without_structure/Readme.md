@@ -29,9 +29,11 @@ def test_phonebook_contains_all_names(phonebook):
 Because here `Bob` is present in the phonebook but the `Missing` is not, however we checked with assertion
 that `Missing` is in phonebook or not. So that the TC fails with error 
 
-`Expected :{'Bob'}
+```yaml
+Expected :{'Bob'}
 Actual   :'Missing'
-`
+```
+
 ```python
 Expected :{'Bob'}
 Actual   :'Missing'
@@ -63,7 +65,9 @@ def test_missing_name_raises_error(phonebook):
         phonebook.lookup("Bob")
 ```
 
-Due to presence of Bob the TC fails. 
+### **This is the way pytest asserts the Exception.** 
+
+Due to presence of Bob in the list the TC fails. 
 
 ```python
 test_phonebook.py::test_missing_name_raises_error FAILED                 [100%]

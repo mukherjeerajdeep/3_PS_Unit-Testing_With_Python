@@ -9,10 +9,10 @@ def days_ago(days):
 
 
 class TestPrescription(unittest.TestCase):
-    
+
     def test_days_taken_excludes_future_dates(self):
         prescription = Prescription("Codeine",
-                                    dispense_date = days_ago(days=2),
+                                    dispense_date=days_ago(days=2),
                                     days_supply=4)
         self.assertListEqual([days_ago(2), days_ago(1)],
                              list(prescription.days_taken()))

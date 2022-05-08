@@ -41,15 +41,6 @@ class PhoneBookTest(unittest.TestCase):
     #     self.phonebook.add("Tom", "123")  # prefix of Bob
     #     self.assertTrue(self.phonebook.is_consistent())
 
-    def test_is_consistent_with_different_entries(self):
-        # given -> arrange
-        self.phonebook.add("Bob", "12345")
-        self.phonebook.add("Anna", "43124")
-        # when -> act
-        consistent = self.phonebook.is_consistent()
-        # then -> assert
-        self.assertTrue(consistent)
-
     def test_inconsistent_with_duplicate_entries(self):
         self.phonebook.add("Bob", "12345")
         self.phonebook.add("Tom", "12345")  # Identical entry to Bob
