@@ -1,4 +1,4 @@
-# Phonebook and the tests 
+# Testing with Unittest 
 
 Unittest can be directly invoked from command line with the command below. 
 Remember that the unittest should be executed in the root directory where the 
