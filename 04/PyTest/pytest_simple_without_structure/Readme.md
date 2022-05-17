@@ -111,7 +111,8 @@ We can say it similar like **DI(Dependency Injection)** for that specific tests 
 In this case we returned the PhoneBook object as our tests depends on that. We can replace that with Mock
 as well, and that's the beauty of using this DI. 
 
-In this case `phonebook is a test fixture` that provides the opportunity to run each test cases individually.
+In this case `phonebook` will be injected as a formal argument to other test case written that provides the opportunity 
+to run each test cases individually. In unitttest everything is passed as self and the resource setup in the beginning.
 
 ```python
 @pytest.fixture

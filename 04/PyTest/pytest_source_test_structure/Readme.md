@@ -25,7 +25,9 @@ Two thongs to note here, we run the package from the src folder, and the depende
 
 Both the `src` and `test` are packages. We separated out the Test-Fixtures in the `conftest.py` 
 script, with the details. Any resources needed for other test to run can be supplied by dependency
-injection from this script. 
+injection from this module. 
+
+This special `conftest.py` name has significance for other files to include the fixtures from here. Any fixture written here will be available for other folder and subfolders. 
 
 ```python
 import pytest
@@ -54,7 +56,7 @@ of the test csv file.
 
 ## Setting up 
 
-However first we need to setup the project by running the `setup.py` so all the requirements and dependancies
+However first we need to set up the project by running the `setup.py` so all the requirements and dependencies
 must be written there so during setup we instantly get those
 
 ```text

@@ -47,7 +47,7 @@ def test_what_passes_though_mocker():
                              json={'Hello': 'World'})
 
         assert mocker.called_once
-        assert mocker.called == True
+        assert mocker.called
         assert mocker.call_count == 2
 
         assert mocker.last_request.netloc == "pycon-au.org"

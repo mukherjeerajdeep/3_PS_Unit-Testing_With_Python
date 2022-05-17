@@ -58,7 +58,7 @@ def test_low_pressure_activates_alarm():
     alarm.check()
     assert alarm.is_alarm_on
 ```
-This is simple stubbing but we need to write our handwritten stub clas/methods here. We can use a 
+This is simple stubbing, but we need to write our handwritten stub clas/methods here. We can use a 
 framework instead of that. This is the steps 
 
 1. We stub the sensor `stub_sensor = Mock(Sensor)`  
