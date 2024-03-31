@@ -6,7 +6,8 @@ from single_sign_on import SSOToken, SingleSignOnRegistry
 def test_hello_name():
     stub_sso_registry = Mock(SingleSignOnRegistry)
     service = MyService(stub_sso_registry)
-    response = service.handle(Request("Emily"), SSOToken())
+    sso_token = SSOToken()
+    response = service.handle(Request("Emily"), sso_token)
     assert response.text == "Hello Emily!"
 
 
@@ -40,5 +41,7 @@ def test_single_sign_on_receives_correct_token():
     correct_token = SSOToken()
     mock_sso_registry.is_valid = Mock(side_effect=confirm_token(correct_token))
     service = MyService(mock_sso_registry)
+    # when handle() is called the self.sso_registry.is_valid(SSOToken()) is replaced with confirm_token(correct_token)
+    # due to use of side_effect
     service.handle(Request("Emily"), correct_token)
     mock_sso_registry.is_valid.assert_called()
